@@ -4,7 +4,7 @@ import router from './router'
 import './assets/global.css'
 // import '../public/static/icons.css'
 // import store from './store'
-// import axios from 'axios'
+import axios from 'axios'
 // import mixins from './mixins'
 
 // import VueAnalytics from 'vue-analytics';
@@ -20,7 +20,7 @@ import './assets/global.css'
 const app = createApp(App)
 
 // app.config.globalProperties.axios =  { ...axiosInstance }
-// app.config.globalProperties.axios=axios //
+app.config.globalProperties.axios=axios 
 
 app
 // .use(store)

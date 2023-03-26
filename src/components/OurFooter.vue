@@ -5,11 +5,14 @@
     </footer>
 </template>
 
-<style>
+<style scoped>
 footer{
     display: flex;
     margin: 0px;
     justify-content: space-around;
+}
+footer p{
+    font-size: 14px;
 }
 .devBy{
     display: flex;

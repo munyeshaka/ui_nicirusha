@@ -14,7 +14,7 @@ body{
     /* font-size: 5px;     */
 }
 .container{
-    color: var(--text_Color)
+    color: var(--text_Color);
 }
 
 p {
