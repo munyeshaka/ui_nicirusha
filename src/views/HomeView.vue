@@ -34,32 +34,21 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
 <br>
 
 <div class="card-parent">
-    <h2 class="articles">Les Articles recent</h2>
+    <h2 class="articles">ARTICLES RÉCENT</h2>
 </div>
 
 
-<div class="card-parent">
-    {{ categorie_latestArticle }}
-    <div class="card">
+<div class="card-parent" v-for="(categ, index) in categorie_latestArticles" :key="index">
+    <div class="card" v-for="(article, index) in categ.latestArticle" :key="index">
         <div class="card-image">
-            <img src="/static/about.png" loading="lazy" alt="..."/>
+            <img :src="`http://127.0.0.1:8000${article.photo}`" loading="lazy" alt="..."/>
         </div>
         <div class="card-text">
-            <p class="card-categ">Sport</p>
-            <h2 class="card-title">Iyambere</h2>
-            <p class="card-body">Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze ukwo mbona ibintu.</p>
+            <p class="card-categ">{{categ.name}}</p>
+            <h2 class="card-title"><router-link class="link" :to="`/article-details/${article.slug}`">{{article.title}}</router-link></h2>
+            <p class="card-body">{{article.content.substring(0,50)}}</p>
         </div>
     </div>
-    <!-- <div class="card">
-        <div class="card-image">
-            <img src="/static/about.png" loading="lazy" alt="..."/>
-        </div>
-        <div class="card-text">
-            <p class="card-categ">Sport</p>
-            <h2 class="card-title">Iyambere</h2>
-            <p class="card-body">Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze ukwo mbona ibintu.</p>
-        </div>
-    </div> -->
 </div>
 
 
@@ -124,6 +113,11 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
 }
 .citation{
     margin: 30px;
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
 }
 .card {
     width: 350px;
@@ -169,9 +163,16 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
     font-size:0.9rem;
 }
 .card-title{
-    margin-top:-8px;
+    margin-top:-10px;
     font-size:2.2rem;
-    margin-bottom:-8px;
+    margin-bottom:-10px;
+    text-decoration: none;
+}
+h2 .link {
+    cursor: pointer;
+    font-size:2.2rem;
+    text-decoration: none;
+    color: white;
 }
 .card-body{
     font-size:0.9rem;
@@ -194,7 +195,7 @@ export default {
     },
     data() {
     return {
-        categorie_latestArticle: [],
+        categorie_latestArticles: [],
     }
     },
     methods: {
@@ -203,7 +204,7 @@ export default {
                 resp => {
                 console.log(resp)
                 // this.$store.state.igisomwaUnomusi = resp?.data?.results;
-                this.categorie_latestArticle = resp?.data;
+                this.categorie_latestArticles = resp?.data?.results;
                 }).catch(error => {console.log(error)
                 })
         },

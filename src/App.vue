@@ -11,7 +11,7 @@
     
     <br>
 
-    <OurFooter/>
+    <!-- <OurFooter/> -->
 
   </div>
 </template>
@@ -19,13 +19,13 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue';
-import OurFooter from '@/components/OurFooter.vue';
+// import OurFooter from '@/components/OurFooter.vue';
 
 export default {
   name: 'app',
   components: {
     NavBar,
-    OurFooter
+    // OurFooter
   },
 }
 </script>
