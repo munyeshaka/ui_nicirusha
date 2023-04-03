@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import './assets/global.css'
-// import '../public/static/icons.css'
-// import store from './store'
+import '../public/static/icons.css'
+import store from './store'
 import axios from 'axios'
 // import mixins from './mixins'
 
@@ -23,7 +23,7 @@ const app = createApp(App)
 app.config.globalProperties.axios=axios 
 
 app
-// .use(store)
+.use(store)
 .use(router)
 
 // .use(VueAnalytics, { id: 'green_google_id', router })

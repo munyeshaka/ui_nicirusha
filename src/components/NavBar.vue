@@ -1,8 +1,13 @@
 <template>
     <header>
         <nav>
-            <h4 class="brand">NICIRUSHA</h4>
             
+            <div class="brand">
+                <img src="/static/logo.png" loading="lazy"/>
+                <h5>NASTIAN</h5>
+            </div>
+
+
             <ul class="navigation">
                 <li><router-link class="link" :to="{ name: 'home' }">Accueil</router-link></li>
                 <li><router-link class="link" :to="{ name: 'articles' }">Blog</router-link></li>
@@ -26,12 +31,23 @@ box-shadow: 0px 0px 8px #aaa;
 }
 nav{
     display: flex;
+    width: 100%;
     margin: 0px;
     justify-content: space-around;
 }
-.brand{
-    margin: 20px;
+
+.brand {
+    width: 200px;
+    display: flex;
+    align-items: center;
 }
+.brand img {
+    width: 20%;
+    object-fit:cover;
+}
+/* .brand h5{
+
+} */
 .navigation {
     display: flex;
     justify-content: end;

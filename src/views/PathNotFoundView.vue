@@ -1,10 +1,10 @@
 <template>
     <br>
     <br>
-    <div class="footer">
-        <h3>404</h3>
-        <h3>Ntanyishu ihari</h3>
-        <h3>:(</h3>
+    <div class="card-parent">
+        <h1>404</h1>
+        <h3 class="citation">Not Found</h3>
+        <h2>:(</h2>
     </div>
 </template>
 

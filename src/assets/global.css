@@ -1,7 +1,6 @@
 :root {
-    --green: #4a9b51;
+    --black: #000;
     --white: #fff;
-    --greenn: #8cc63e;
     --bg_Color: #f5f5f5;
     --text_Color: #1a1a1a;
 }
@@ -10,7 +9,7 @@ body{
     margin: 0px;
     padding: 0px;
     /* background-color: var(--bg_Color); */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rubik', sans-serif;
     /* font-size: 5px;     */
 }
 .container{
@@ -22,7 +21,7 @@ p {
 }
 pre {
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rubik', sans-serif;
     text-align: start;
     white-space: pre-wrap;
 }

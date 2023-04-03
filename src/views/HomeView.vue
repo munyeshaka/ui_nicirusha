@@ -12,9 +12,10 @@ Nkina basketball muri Team yitwa les hyppos
 
 Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze ukwo mbona ibintu.</pre>
             <div class="about-social-media">
-                <h4>FB</h4>
-                <h4>IG</h4>
-                <h4>TW</h4>
+                <h4><a href="https://facebook.com/profile.php?id=100005224518548&mibextid=LQQJ4d" target="_blank"><i class="icon-facebook" aria-hidden="true"></i></a></h4>
+
+                <h4><a href="https://twitter.com/nicirushac?s=21&t=CPSHWkDbU-DDBzh18jj1Ow" target="_blank"><i class="icon-twitter" aria-hidden="true"></i></a></h4>
+
             </div>
         </div>
     </div>
@@ -38,14 +39,14 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
 </div>
 
 
-<div class="card-parent" v-for="(categ, index) in categorie_latestArticles" :key="index">
+<div class="card-parent" v-for="(categ, index) in this.$store.state.categorie_latestArticles" :key="index">
     <div class="card" v-for="(article, index) in categ.latestArticle" :key="index">
         <div class="card-image">
             <img :src="`http://127.0.0.1:8000${article.photo}`" loading="lazy" alt="..."/>
         </div>
         <div class="card-text">
             <p class="card-categ">{{categ.name}}</p>
-            <h2 class="card-title"><router-link class="link" :to="`/article-details/${article.slug}`">{{article.title}}</router-link></h2>
+            <h2 class="card-title"><router-link class="link" :to="`/article-detail/${article.slug}`">{{article.title}}</router-link></h2>
             <p class="card-body">{{article.content.substring(0,50)}}</p>
         </div>
     </div>
@@ -64,6 +65,40 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
 </template>
 
 
+
+
+
+
+<script>
+// import OurLoading from '@/components/OurLoading.vue'
+// import moment from 'moment'
+
+export default {
+    name: 'HomeView',
+    // props: ['igisomwa_id'],
+    components: {
+    // OurLoading,
+    },
+    data() {
+    return {}
+    },
+    methods: {
+        getCategArticles(){
+            this.axios.get(this.$store.state.baseUrl + 'categorie-latestArticle/').then(
+                resp => {
+                console.log(resp)
+                // this.$store.state.igisomwaUnomusi = resp?.data?.results;
+                this.$store.state.categorie_latestArticles = resp?.data?.results;
+                }).catch(error => {console.log(error)
+                })
+        },
+    },
+    mounted() {
+        this.getCategArticles();
+    }
+}
+
+</script>
 
 <style>
 
@@ -100,6 +135,10 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
     align-items: center;
     gap: 15px
 }
+
+.about-social-media a{
+    text-decoration: none;
+}
 .card-parent{
     display: flex;
     justify-content: center;
@@ -112,12 +151,11 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
     padding-left: 35px;
 }
 .citation{
-    margin: 30px;
-    width: 400px;
-    height: auto;
+    margin: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;    
+    justify-content: center;
+    font-family: 'Alkatra', cursive;    
 }
 .card {
     width: 350px;
@@ -181,37 +219,3 @@ h2 .link {
 
 
 </style>
-
-
-<script>
-// import OurLoading from '@/components/OurLoading.vue'
-// import moment from 'moment'
-
-export default {
-    name: 'HomeView',
-    // props: ['igisomwa_id'],
-    components: {
-    // OurLoading,
-    },
-    data() {
-    return {
-        categorie_latestArticles: [],
-    }
-    },
-    methods: {
-        getCategArticles(){
-            this.axios.get('http://127.0.0.1:8000/api/categorie-latestArticle/').then(
-                resp => {
-                console.log(resp)
-                // this.$store.state.igisomwaUnomusi = resp?.data?.results;
-                this.categorie_latestArticles = resp?.data?.results;
-                }).catch(error => {console.log(error)
-                })
-        },
-    },
-    mounted() {
-        this.getCategArticles();
-    }
-}
-
-</script>

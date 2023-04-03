@@ -9,15 +9,16 @@
 footer{
     display: flex;
     margin: 0px;
-    justify-content: space-around;
+    justify-content: center;
 }
 footer p{
     font-size: 14px;
+    text-align: center;
 }
 .devBy{
-    display: flex;
-    justify-content: center;
-    color: var(--green);
+    /* display: flex;
+    justify-content: center; */
+    color: #0b6cd6;
     text-decoration: none;
 }
 </style>

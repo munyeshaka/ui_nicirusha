@@ -20,7 +20,7 @@
     </div>
 </div> -->
 <div class="card-parent-articles">
-    <div class="card-catego"  v-for="(categ, index) in categorieArticles" :key="index">
+    <div class="card-catego"  v-for="(categ, index) in this.$store.state.categorieArticles" :key="index">
         <div class="catego">
             <div class="card" v-for="(article, index) in categ.articles" :key="index">
                 <div class="card-image">
@@ -29,7 +29,7 @@
                 <div class="card-text">
                     <div></div>
                     <p class="card-categ">{{categ.name}}</p>
-                    <h2 class="card-title"><router-link class="link" :to="`/article-details/${article.slug}`">{{article.title}}</router-link></h2>
+                    <h2 class="card-title"><router-link class="link" :to="`/article-detail/${article.slug}`">{{article.title}}</router-link></h2>
                     <p class="card-body">{{article.content.substring(0,50)}}</p>
                 </div>
 
@@ -80,17 +80,15 @@ export default {
     // OurLoading,
     },
     data() {
-    return {
-        categorieArticles: [],
-    }
+    return {}
     },
     methods: {
         getCategArticles(){
-            this.axios.get('http://127.0.0.1:8000/api/categories/').then(
+            this.axios.get(this.$store.state.baseUrl + 'categories/').then(
                 resp => {
                 console.log(resp)
                 // this.$store.state.igisomwaUnomusi = resp?.data?.results;
-                this.categorieArticles = resp?.data?.results;
+                this.$store.state.categorieArticles = resp?.data?.results;
                 }).catch(error => {console.log(error)
                 })
         },
