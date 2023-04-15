@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ArticlesView from '../views/ArticlesView.vue'
 import ArticleDetailsView from '../views/ArticleDetailsView.vue'
+import Last_4DetailsView from '../views/Last_4DetailsView.vue'
 import PathNotFoundView from '../views/PathNotFoundView.vue'
 
 
@@ -22,6 +23,12 @@ const routes = [
         // path: '/article-detail/:id',
         name: 'article-detail',
         component: ArticleDetailsView
+    },
+    {
+        path: '/article4-detail/:slug',
+        // path: '/article-detail/:id',
+        name: 'article4-detail',
+        component: Last_4DetailsView
     },
     { 
         path: '/:pathMatch(.*)*',

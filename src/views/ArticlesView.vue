@@ -6,25 +6,12 @@
         <h2 class="articles">ARTICLES RÉCENT</h2>
     </div>
 
-
-<!-- <div class="card-parent-articles">
-    <div class="card">
-        <div class="card-image">
-            <img src="/static/about.png" loading="lazy" alt="..."/>
-        </div>
-        <div class="card-text">
-            <p class="card-categ">Sport</p>
-            <h2 class="card-title">Iyambere</h2>
-            <p class="card-body">Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze ukwo mbona ibintu.</p>
-        </div>
-    </div>
-</div> -->
 <div class="card-parent-articles">
     <div class="card-catego"  v-for="(categ, index) in this.$store.state.categorieArticles" :key="index">
         <div class="catego">
             <div class="card" v-for="(article, index) in categ.articles" :key="index">
                 <div class="card-image">
-                    <img :src="`http://127.0.0.1:8000${article.photo}`" loading="lazy" alt="..."/>
+                    <img :src="`${article.photo}`" loading="lazy" alt="..."/>
                 </div>
                 <div class="card-text">
                     <div></div>
@@ -84,7 +71,7 @@ export default {
     },
     methods: {
         getCategArticles(){
-            this.axios.get(this.$store.state.baseUrl + 'categories/').then(
+            this.axios.get('categories/').then(
                 resp => {
                 console.log(resp)
                 // this.$store.state.igisomwaUnomusi = resp?.data?.results;

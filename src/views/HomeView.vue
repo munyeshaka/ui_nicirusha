@@ -4,13 +4,14 @@
     <div class="about-card">
         <h2>A Propos de Moi</h2>
         <div class="about-card-image">
-            <img src="/static/about.png" loading="lazy" alt="..."/>
+            <img src="/static/alain.png" loading="lazy" alt="."/>
         </div>
         <div class="about-body">
-            <pre>Nitwa NICIRUSHA Alain Christian, abagenzi bamwe bampamagara Bebeto
-Nkina basketball muri Team yitwa les hyppos
+            <pre>Je m'appelle NICIRUSHA Christian (Nastian),
+passionné par la science de la nature, la phylosophie et le sport, je me suis retrouvé enthousiasmé par littérature.
 
-Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze ukwo mbona ibintu.</pre>
+Je dispense mes idées au travers ce Blog en vue de partager mes différentes avis et celles des lecteurs.
+            </pre>
             <div class="about-social-media">
                 <h4><a href="https://facebook.com/profile.php?id=100005224518548&mibextid=LQQJ4d" target="_blank"><i class="icon-facebook" aria-hidden="true"></i></a></h4>
 
@@ -28,7 +29,7 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
 
     <div class="card-parent">
         <div class="citation">
-            <h1>"Inkintu warondeye igihe kinini nticijana vyoroshe"</h1>
+            <h1>"Dans la douleur ou le bonheur, le partage et le centre de satisfaction"</h1>
         </div>
     </div>
 
@@ -42,7 +43,7 @@ Iyi ni Blog yanje nzoza ndashirako ama Article yanje muntumbera yo gushira hanze
 <div class="card-parent" v-for="(categ, index) in this.$store.state.categorie_latestArticles" :key="index">
     <div class="card" v-for="(article, index) in categ.latestArticle" :key="index">
         <div class="card-image">
-            <img :src="`http://127.0.0.1:8000${article.photo}`" loading="lazy" alt="..."/>
+            <img :src="`${article.photo}`" loading="lazy" alt="."/>
         </div>
         <div class="card-text">
             <p class="card-categ">{{categ.name}}</p>
@@ -84,7 +85,7 @@ export default {
     },
     methods: {
         getCategArticles(){
-            this.axios.get(this.$store.state.baseUrl + 'categorie-latestArticle/').then(
+            this.axios.get('categorie-latestArticle/').then(
                 resp => {
                 console.log(resp)
                 // this.$store.state.igisomwaUnomusi = resp?.data?.results;
@@ -120,9 +121,9 @@ export default {
 .about-card-image img{
     display: flex;
     align-items: center;
-    height: 100px;
-    width: 100px;
-    border-radius: 50px;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
 }
 .about-body{
     display: flex;
@@ -201,9 +202,9 @@ export default {
     font-size:0.9rem;
 }
 .card-title{
-    margin-top:-10px;
+    margin-top:-7px;
     font-size:2.2rem;
-    margin-bottom:-10px;
+    margin-bottom:-7px;
     text-decoration: none;
 }
 h2 .link {

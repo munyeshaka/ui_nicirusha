@@ -20,6 +20,10 @@ import axios from 'axios'
 const app = createApp(App)
 
 // app.config.globalProperties.axios =  { ...axiosInstance }
+
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
+axios.defaults.baseURL = 'https://nastian.egeratech.com/api/'
+
 app.config.globalProperties.axios=axios 
 
 app
